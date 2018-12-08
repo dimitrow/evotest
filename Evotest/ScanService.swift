@@ -30,9 +30,9 @@ class ScanService: NSObject {
             previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
             previewLayer.frame = scanView.layer.bounds
             previewLayer.videoGravity = .resizeAspectFill
+        } else {
+            captureSession = nil
         }
-        
-        
     }
     
     func checkIfDeviceCompatible() -> Bool {
@@ -60,7 +60,6 @@ class ScanService: NSObject {
             metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
             metadataOutput.metadataObjectTypes = [.ean8, .ean13, .pdf417]
         } else {
-//            failed()
             return false
         }
         
@@ -74,19 +73,31 @@ class ScanService: NSObject {
     
     func startScan() {
         
+        guard captureSession != nil else {
+            failed()
+            return
+        }
+
         scanView?.layer.addSublayer(previewLayer)
         captureSession.startRunning()
+
     }
     
     func stopScan() {
         
+        guard captureSession != nil else {
+            failed()
+            return
+        }
+        
         self.previewLayer.removeFromSuperlayer()
         captureSession.stopRunning()
+
     }
     
     func failed() {
-
-        captureSession = nil
+   
+        self.output?.scanFailed()
     }
     
 }
@@ -104,7 +115,7 @@ extension ScanService: AVCaptureMetadataOutputObjectsDelegate {
             
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             
-            self.output?.scanSuccessfull(with: stringValue)
+            self.output?.scanSuccessful(stringValue)
         }
     }
 }

@@ -25,10 +25,14 @@ class ScanPresenter {
 
 extension ScanPresenter: ScanServiceOutput {
     
-    func scanSuccessfull(with code: String) {
+    func scanSuccessful(_ code: String) {
         
-        self.view?.codeScanned(code)
+        self.view?.scanSuccessful(nil)
+    }
+    
+    func scanFailed() {
         
+        self.view?.scanFailure()
     }
     
 }

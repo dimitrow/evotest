@@ -8,22 +8,25 @@
 
 import UIKit
 
+
+let requestURLString = "https://catalog.napolke.ru/search/catalog"
+
 protocol ScanViewProtocol: class {
     
     var scannerView: UIView { get }
     
-    func codeScanned(_ code: String)
-    func scannerFailure()
+    func scanSuccessful(_ model: ItemModel?)
+    func scanFailure()
 }
 
 protocol ScanPresenterProtocol: class {
     
     func startScan()
     func stopScan()
-    
 }
 
 protocol ScanServiceOutput: class {
     
-    func scanSuccessfull(with code: String)
+    func scanSuccessful(_ code: String)
+    func scanFailed()
 }

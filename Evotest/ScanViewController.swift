@@ -23,10 +23,12 @@ class ScanViewController: UIViewController {
     }
     
     @IBAction func scanAction(_ sender: UIButton) {
+        
         presenter.startScan()
     }
     
     @IBAction func cancelScanAction(_ sender: UIButton) {
+        
         presenter.stopScan()
     }
     
@@ -38,12 +40,13 @@ extension ScanViewController: ScanViewProtocol {
         return scanView
     }
     
-    func codeScanned(_ code: String) {
+    func scanSuccessful(_ model: ItemModel?) {
         
-        print(code)
     }
     
-    func scannerFailure() {
+    func scanFailure() {
+        
+        print("Device is not compatible")
         
     }
 }
