@@ -7,9 +7,20 @@
 //
 
 import UIKit
+import Alamofire
 
 class NetworkService: NSObject {
 
+    func basicItemSearchRequestByBarcode(_ barcode: String) {
+
+        let params: [String : Any] = ["text" : barcode, "region" : [regionUUID]]
+
+        request(requestURLString, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+            
+            let products: SearchResponseModel = try! JSONDecoder().decode(SearchResponseModel.self, from: response.data!)
+ 
+        }
+        
+    }
+    
 }
-
-

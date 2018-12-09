@@ -10,6 +10,7 @@ import UIKit
 
 
 let requestURLString = "https://catalog.napolke.ru/search/catalog"
+let regionUUID = "0c5b2444-70a0-4932-980c-b4dc0d3f02b5"
 
 protocol ScanViewProtocol: class {
     

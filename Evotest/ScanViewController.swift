@@ -18,7 +18,7 @@ class ScanViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        presenter = ScanPresenter(self)
+        presenter = ScanPresenter(view: self)
         
     }
     

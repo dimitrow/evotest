@@ -12,12 +12,13 @@ class ScanPresenter {
     
     weak var view: ScanViewProtocol?
     private var scanService: ScanService
+    private var networkService: NetworkService
     
-    init(_ view: ScanViewProtocol) {
+    init(view: ScanViewProtocol) {
         
         self.view = view
         self.scanService = ScanService(view.scannerView)
-        
+        self.networkService = NetworkService()
         scanService.attachOutput(output: self)
 
     }
@@ -28,6 +29,8 @@ extension ScanPresenter: ScanServiceOutput {
     func scanSuccessful(_ code: String) {
         
         self.view?.scanSuccessful(nil)
+        
+        self.networkService.basicItemSearchRequestByBarcode(code)
     }
     
     func scanFailed() {

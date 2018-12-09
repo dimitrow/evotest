@@ -17,7 +17,7 @@
 		DF5E3BA321BAC4BF000A2625 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF5E3BA121BAC4BF000A2625 /* LaunchScreen.storyboard */; };
 		DF5E3BAB21BAC832000A2625 /* ScanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5E3BAA21BAC832000A2625 /* ScanService.swift */; };
 		DF5E3BAD21BAC883000A2625 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5E3BAC21BAC883000A2625 /* NetworkService.swift */; };
-		DF5E3BAF21BAC94C000A2625 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5E3BAE21BAC94C000A2625 /* ItemModel.swift */; };
+		DF5E3BAF21BAC94C000A2625 /* ItemModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5E3BAE21BAC94C000A2625 /* ItemModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +35,7 @@
 		DF5E3BA421BAC4BF000A2625 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF5E3BAA21BAC832000A2625 /* ScanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanService.swift; sourceTree = "<group>"; };
 		DF5E3BAC21BAC883000A2625 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		DF5E3BAE21BAC94C000A2625 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
+		DF5E3BAE21BAC94C000A2625 /* ItemModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +93,7 @@
 				168C7D4321BB24C600833EA4 /* ScanPresenter.swift */,
 				DF5E3BAA21BAC832000A2625 /* ScanService.swift */,
 				DF5E3BAC21BAC883000A2625 /* NetworkService.swift */,
-				DF5E3BAE21BAC94C000A2625 /* ItemModel.swift */,
+				DF5E3BAE21BAC94C000A2625 /* ItemModels.swift */,
 				168C7D4121BB102B00833EA4 /* EvotestContract.swift */,
 				DF5E3B9C21BAC4BE000A2625 /* Main.storyboard */,
 				DF5E3B9F21BAC4BF000A2625 /* Assets.xcassets */,
@@ -215,7 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF5E3BAF21BAC94C000A2625 /* ItemModel.swift in Sources */,
+				DF5E3BAF21BAC94C000A2625 /* ItemModels.swift in Sources */,
 				DF5E3B9B21BAC4BE000A2625 /* ScanViewController.swift in Sources */,
 				DF5E3BAB21BAC832000A2625 /* ScanService.swift in Sources */,
 				168C7D4421BB24C600833EA4 /* ScanPresenter.swift in Sources */,

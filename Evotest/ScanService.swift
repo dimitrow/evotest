@@ -58,7 +58,7 @@ class ScanService: NSObject {
             captureSession.addOutput(metadataOutput)
             
             metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-            metadataOutput.metadataObjectTypes = [.ean8, .ean13, .pdf417]
+            metadataOutput.metadataObjectTypes = [.ean8, .ean13, .pdf417, .code128, .code39]
         } else {
             return false
         }
