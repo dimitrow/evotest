@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1645A93C21BDB99B001771C1 /* ItemDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645A93B21BDB99B001771C1 /* ItemDetailsViewController.swift */; };
 		168C7D4221BB102B00833EA4 /* EvotestContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168C7D4121BB102B00833EA4 /* EvotestContract.swift */; };
 		168C7D4421BB24C600833EA4 /* ScanPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168C7D4321BB24C600833EA4 /* ScanPresenter.swift */; };
 		3E37FE236CDFB8665699DA49 /* Pods_Evotest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C36CDE2F69630680AFAE4F1 /* Pods_Evotest.framework */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1645A93B21BDB99B001771C1 /* ItemDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsViewController.swift; sourceTree = "<group>"; };
 		168C7D4121BB102B00833EA4 /* EvotestContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvotestContract.swift; sourceTree = "<group>"; };
 		168C7D4321BB24C600833EA4 /* ScanPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanPresenter.swift; sourceTree = "<group>"; };
 		23106DDDB921F1F35AF9F851 /* Pods-Evotest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Evotest.release.xcconfig"; path = "Pods/Target Support Files/Pods-Evotest/Pods-Evotest.release.xcconfig"; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			children = (
 				DF5E3B9821BAC4BE000A2625 /* AppDelegate.swift */,
 				DF5E3B9A21BAC4BE000A2625 /* ScanViewController.swift */,
+				1645A93B21BDB99B001771C1 /* ItemDetailsViewController.swift */,
 				168C7D4321BB24C600833EA4 /* ScanPresenter.swift */,
 				DF5E3BAA21BAC832000A2625 /* ScanService.swift */,
 				DF5E3BAC21BAC883000A2625 /* NetworkService.swift */,
@@ -221,6 +224,7 @@
 				168C7D4421BB24C600833EA4 /* ScanPresenter.swift in Sources */,
 				DF5E3BAD21BAC883000A2625 /* NetworkService.swift in Sources */,
 				168C7D4221BB102B00833EA4 /* EvotestContract.swift in Sources */,
+				1645A93C21BDB99B001771C1 /* ItemDetailsViewController.swift in Sources */,
 				DF5E3B9921BAC4BE000A2625 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

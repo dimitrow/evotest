@@ -16,7 +16,7 @@ protocol ScanViewProtocol: class {
     
     var scannerView: UIView { get }
     
-    func scanSuccessful(_ model: ItemModel?)
+    func scanSuccessful(_ item: ItemModel?)
     func scanAttemptFailed(_ error: Error)
 }
 

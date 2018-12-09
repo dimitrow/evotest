@@ -40,10 +40,16 @@ extension ScanViewController: ScanViewProtocol {
         return scanView
     }
     
-    func scanSuccessful(_ model: ItemModel?) {
+    func scanSuccessful(_ item: ItemModel?) {
         
-        if let _ = model {
-            print("\n*** FOUND ITEM: \(model!)")
+        if let _ = item {
+//            print("\n*** FOUND ITEM: \(model!)")
+            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+            let itemDetailsViewController = storyboard.instantiateViewController(withIdentifier: "ItemDetailsViewController") as! ItemDetailsViewController
+            itemDetailsViewController.modalPresentationStyle = .overCurrentContext
+            itemDetailsViewController.modalTransitionStyle = .crossDissolve
+            itemDetailsViewController.item = item
+            self.present(itemDetailsViewController, animated: true, completion: nil)
         }
     }
     
