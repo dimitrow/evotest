@@ -32,6 +32,7 @@ class ScanService: NSObject {
             previewLayer.videoGravity = .resizeAspectFill
         } else {
             captureSession = nil
+            failed()
         }
     }
     
@@ -74,32 +75,27 @@ class ScanService: NSObject {
     func startScan() {
         
         guard captureSession != nil else {
+
             failed()
             return
         }
 
         scanView?.layer.addSublayer(previewLayer)
         captureSession.startRunning()
-
     }
     
     func stopScan() {
         
-        guard captureSession != nil else {
-            failed()
-            return
-        }
+        guard captureSession != nil else { return }
         
         self.previewLayer.removeFromSuperlayer()
         captureSession.stopRunning()
-
     }
     
     func failed() {
    
         self.output?.scanFailed()
     }
-    
 }
 
 extension ScanService: AVCaptureMetadataOutputObjectsDelegate {

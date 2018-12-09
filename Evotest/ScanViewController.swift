@@ -42,11 +42,13 @@ extension ScanViewController: ScanViewProtocol {
     
     func scanSuccessful(_ model: ItemModel?) {
         
+        if let _ = model {
+            print("\n*** FOUND ITEM: \(model!)")
+        }
     }
     
-    func scanFailure() {
+    func scanAttemptFailed(_ error: Error) {
         
-        print("Device is not compatible")
-        
+        print("\n*** Failed with error: \(error)")
     }
 }

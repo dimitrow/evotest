@@ -17,7 +17,7 @@ protocol ScanViewProtocol: class {
     var scannerView: UIView { get }
     
     func scanSuccessful(_ model: ItemModel?)
-    func scanFailure()
+    func scanAttemptFailed(_ error: Error)
 }
 
 protocol ScanPresenterProtocol: class {
@@ -30,4 +30,11 @@ protocol ScanServiceOutput: class {
     
     func scanSuccessful(_ code: String)
     func scanFailed()
+}
+
+enum ScanError: Error {
+    
+    case itemNotFound
+    case deviceNotCompatible
+
 }

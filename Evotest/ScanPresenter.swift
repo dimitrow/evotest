@@ -30,12 +30,17 @@ extension ScanPresenter: ScanServiceOutput {
         
         self.view?.scanSuccessful(nil)
         
-        self.networkService.basicItemSearchRequestByBarcode(code)
+        self.networkService.basicItemSearchRequestByBarcode(code, comletion: { item in
+            
+            self.view?.scanSuccessful(item)
+        }, failure: { error in
+            self.view?.scanAttemptFailed(error)
+        })
     }
     
     func scanFailed() {
         
-        self.view?.scanFailure()
+        self.view?.scanAttemptFailed(ScanError.deviceNotCompatible)
     }
     
 }
