@@ -44,6 +44,11 @@ class ScanViewController: UIViewController {
             self?.startScanButton.isUserInteractionEnabled = true
         }
     }
+    
+    func showAlertWithError(_ title: String)  {
+        
+        print("\n*** Failed with error: \(title)")
+    }
 }
 
 extension ScanViewController: ScanViewProtocol {
@@ -55,7 +60,7 @@ extension ScanViewController: ScanViewProtocol {
     func scanSuccessful(_ item: ItemModel?) {
         
         if let _ = item {
-//            print("\n*** FOUND ITEM: \(model!)")
+            print("\n*** FOUND ITEM: \(item!)")
             let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
             let itemDetailsViewController = storyboard.instantiateViewController(withIdentifier: "ItemDetailsViewController") as! ItemDetailsViewController
             itemDetailsViewController.modalPresentationStyle = .overCurrentContext
@@ -67,6 +72,6 @@ extension ScanViewController: ScanViewProtocol {
     
     func scanAttemptFailed(_ error: Error) {
         
-//        print("\n*** Failed with error: \(error)")
+        showAlertWithError(error.localizedDescription)
     }
 }

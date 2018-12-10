@@ -60,13 +60,9 @@ class ScanService: NSObject {
     
     func stopScan() {
         
-        guard captureSession != nil else { return }
+//        guard captureSession != nil, self.previewLayer != nil else { return }
         
         animateLayerAppearance(true)
-//        self.previewLayer.removeFromSuperlayer()
-//        captureSession.stopRunning()
-//        self.previewLayer = nil
-        
     }
     
     private func checkIfDeviceCompatible() -> Bool {
@@ -107,25 +103,37 @@ class ScanService: NSObject {
     
     private func animateLayerAppearance(_ reversed: Bool) {
         
+        // why I come her more then once????
+        guard self.captureSession != nil, self.previewLayer != nil else { return }
+        
         CATransaction.begin()
+        
+        var fromValue: CGFloat = 0.0
+        var toValue: CGFloat = scanView.frame.height
+
+        if reversed {
+            fromValue = previewLayer.bounds.size.height
+            previewLayer.bounds.size.height = 0.0
+            toValue = 0.0
+        }
         
         let animation = CABasicAnimation(keyPath: "bounds.size.height")
         
-        animation.fromValue = !reversed ? 0.0 : scanView.frame.height
-        animation.toValue = !reversed ? scanView.frame.height : 0.0
+        animation.fromValue = fromValue
+        animation.toValue = toValue
         
         animation.duration = 0.075
+        animation.isRemovedOnCompletion = false
         
         CATransaction.setCompletionBlock{ [weak self] in
             if !reversed {
                 self?.captureSession.startRunning()
             } else {
-                self?.previewLayer.removeFromSuperlayer()
                 self?.captureSession.stopRunning()
+                self?.previewLayer.removeFromSuperlayer()
                 self?.previewLayer = nil
             }
         }
-        
         previewLayer.add(animation, forKey: nil)
         CATransaction.commit()
     }

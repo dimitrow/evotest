@@ -8,9 +8,14 @@
 
 import UIKit
 
+// MARK: - constants
 
 let requestURLString = "https://catalog.napolke.ru/search/catalog"
 let regionUUID = "0c5b2444-70a0-4932-980c-b4dc0d3f02b5"
+
+
+
+// MARK: - protocols:
 
 protocol ScanViewProtocol: class {
     
@@ -32,22 +37,25 @@ protocol ScanServiceOutput: class {
     func scanFailed()
 }
 
+// MARK: - errors defenition:
+
 enum ScanError: Error {
     
     case itemNotFound
     case deviceNotCompatible
-
+    case internetConnectionMissed
 }
 
-class FlatButton: UIButton {
+extension ScanError: LocalizedError {
     
-    required init?(coder aDecoder: NSCoder) {
-        
-        super.init(coder: aDecoder)
-        
-        self.layer.borderWidth = 0.6
-        self.layer.borderColor = UIColor.lightGray.cgColor
-        self.layer.cornerRadius = 4.0
+    var errorDescription: String? {
+        switch self {
+        case .itemNotFound:
+            return "Товар не найден"
+        case .deviceNotCompatible:
+            return "Устройство не совместимо"
+        case .internetConnectionMissed:
+            return "Отсутствует подключение к интернету"
+        }
     }
-    
 }
