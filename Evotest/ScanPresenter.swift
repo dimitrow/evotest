@@ -20,7 +20,6 @@ class ScanPresenter {
         self.scanService = ScanService(view.scannerView)
         self.networkService = NetworkService()
         scanService.attachOutput(output: self)
-
     }
 }
 
@@ -56,5 +55,4 @@ extension ScanPresenter: ScanPresenterProtocol {
         
         scanService.stopScan()
     }
-    
 }

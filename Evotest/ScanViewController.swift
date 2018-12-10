@@ -12,6 +12,8 @@ import AVFoundation
 class ScanViewController: UIViewController {
 
     @IBOutlet weak var scanView: UIView!
+    @IBOutlet weak var startScanButton: UIButton!
+    @IBOutlet weak var cancelScanButton: UIButton!
     
     var presenter: ScanPresenterProtocol!
     
@@ -20,18 +22,28 @@ class ScanViewController: UIViewController {
         
         presenter = ScanPresenter(view: self)
         
+        // initial state:
+        cancelScanButton.isUserInteractionEnabled = false
+        startScanButton.isUserInteractionEnabled = true
     }
     
     @IBAction func scanAction(_ sender: UIButton) {
         
         presenter.startScan()
+        DispatchQueue.main.async { [weak self] in
+            self?.cancelScanButton.isUserInteractionEnabled = true
+            self?.startScanButton.isUserInteractionEnabled = false
+        }
     }
     
     @IBAction func cancelScanAction(_ sender: UIButton) {
         
         presenter.stopScan()
+        DispatchQueue.main.async { [weak self] in
+            self?.cancelScanButton.isUserInteractionEnabled = false
+            self?.startScanButton.isUserInteractionEnabled = true
+        }
     }
-    
 }
 
 extension ScanViewController: ScanViewProtocol {
@@ -55,6 +67,6 @@ extension ScanViewController: ScanViewProtocol {
     
     func scanAttemptFailed(_ error: Error) {
         
-        print("\n*** Failed with error: \(error)")
+//        print("\n*** Failed with error: \(error)")
     }
 }
