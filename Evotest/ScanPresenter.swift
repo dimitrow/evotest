@@ -27,13 +27,10 @@ extension ScanPresenter: ScanServiceOutput {
     
     func scanSuccessful(_ code: String) {
         
-        self.view?.scanSuccessful(nil)
-        
-        self.networkService.basicItemSearchRequestByBarcode(code, comletion: { item in
-            
-            self.view?.scanSuccessful(item)
-        }, failure: { error in
-            self.view?.scanAttemptFailed(error)
+        self.networkService.basicItemSearchRequestByBarcode(code, comletion: { [weak self] item in
+            self?.view?.scanSuccessful(item)
+        }, failure: { [weak self] error in
+            self?.view?.scanAttemptFailed(error)
         })
     }
     

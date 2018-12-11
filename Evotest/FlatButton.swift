@@ -13,9 +13,6 @@ class FlatButton: UIButton {
     required init?(coder aDecoder: NSCoder) {
         
         super.init(coder: aDecoder)
-        
-        self.layer.borderWidth = 0.6
-        self.layer.borderColor = UIColor.lightGray.cgColor
         self.layer.cornerRadius = 4.0
     }
 }

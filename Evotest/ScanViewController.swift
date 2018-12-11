@@ -22,32 +22,43 @@ class ScanViewController: UIViewController {
         
         presenter = ScanPresenter(view: self)
         
-        // initial state:
-        cancelScanButton.isUserInteractionEnabled = false
-        startScanButton.isUserInteractionEnabled = true
+        self.toggleButtons(true)
     }
     
     @IBAction func scanAction(_ sender: UIButton) {
         
         presenter.startScan()
         DispatchQueue.main.async { [weak self] in
-            self?.cancelScanButton.isUserInteractionEnabled = true
-            self?.startScanButton.isUserInteractionEnabled = false
+            
+            self?.toggleButtons(false)
         }
     }
     
     @IBAction func cancelScanAction(_ sender: UIButton) {
         
         presenter.stopScan()
-        DispatchQueue.main.async { [weak self] in
-            self?.cancelScanButton.isUserInteractionEnabled = false
-            self?.startScanButton.isUserInteractionEnabled = true
-        }
+        self.toggleButtons(true)        
     }
     
-    func showAlertWithError(_ title: String)  {
+    func toggleButtons(_ enabled: Bool) {
         
-        print("\n*** Failed with error: \(title)")
+        self.cancelScanButton.isUserInteractionEnabled = !enabled
+        self.startScanButton.isUserInteractionEnabled = enabled
+    }
+    
+    func showAlertWithError(_ message: String)  {
+        
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true) {
+            
+            DispatchQueue.main.async { [weak self] in
+                
+                self?.toggleButtons(true)
+            }
+        }
     }
 }
 
@@ -67,6 +78,11 @@ extension ScanViewController: ScanViewProtocol {
             itemDetailsViewController.modalTransitionStyle = .crossDissolve
             itemDetailsViewController.item = item
             self.present(itemDetailsViewController, animated: true, completion: nil)
+            
+            DispatchQueue.main.async { [weak self] in
+                
+                self?.toggleButtons(true)
+            }
         }
     }
     

@@ -24,13 +24,11 @@ class ScanService: NSObject {
         self.scanView = scanView
         captureSession = AVCaptureSession()
         
-        
         if !self.checkIfDeviceCompatible() {
             captureSession = nil
             failed()
         }
     }
-    
     
     func attachOutput(output: ScanServiceOutput) {
         
@@ -46,22 +44,20 @@ class ScanService: NSObject {
         }
         
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        previewLayer.frame = scanView.layer.bounds
         previewLayer.videoGravity = .resizeAspectFill
-        previewLayer.backgroundColor = UIColor.red.cgColor
-        previewLayer.cornerRadius = 10.0
-        previewLayer.borderWidth = 0.6
-        previewLayer.borderColor = UIColor.lightGray.cgColor
-        
-        scanView.layer.addSublayer(previewLayer)
+        previewLayer.cornerRadius = 0.2
+        previewLayer.borderWidth = 1.6
+        previewLayer.borderColor = UIColor(red: 110.0/255.0, green: 115.0/255.0, blue: 198.0/255.0, alpha: 1.0).cgColor
 
+        previewLayer.frame = scanView.layer.bounds
+        scanView.layer.addSublayer(previewLayer)
+        self.captureSession.startRunning()
         animateLayerAppearance(false)
     }
     
     func stopScan() {
         
-//        guard captureSession != nil, self.previewLayer != nil else { return }
-        
+        guard captureSession != nil, self.previewLayer != nil else { return }
         animateLayerAppearance(true)
     }
     
@@ -86,7 +82,6 @@ class ScanService: NSObject {
         
         if (captureSession.canAddOutput(metadataOutput)) {
             captureSession.addOutput(metadataOutput)
-            
             metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
             metadataOutput.metadataObjectTypes = [.ean8, .ean13, .pdf417, .code128, .code39]
         } else {
@@ -102,10 +97,7 @@ class ScanService: NSObject {
     }
     
     private func animateLayerAppearance(_ reversed: Bool) {
-        
-        // why I come her more then once????
-        guard self.captureSession != nil, self.previewLayer != nil else { return }
-        
+
         CATransaction.begin()
         
         var fromValue: CGFloat = 0.0
@@ -122,14 +114,11 @@ class ScanService: NSObject {
         animation.fromValue = fromValue
         animation.toValue = toValue
         
-        animation.duration = 0.075
-        animation.isRemovedOnCompletion = false
+        animation.duration = 0.06
         
         CATransaction.setCompletionBlock{ [weak self] in
-            if !reversed {
-                self?.captureSession.startRunning()
-            } else {
-                self?.captureSession.stopRunning()
+
+            if reversed {
                 self?.previewLayer.removeFromSuperlayer()
                 self?.previewLayer = nil
             }
@@ -149,6 +138,7 @@ extension ScanService: AVCaptureMetadataOutputObjectsDelegate {
             guard let stringValue = readableObject.stringValue else { return }
             guard (self.output != nil) else { return }
             
+            self.captureSession.stopRunning()
             self.stopScan()
             let notification = UINotificationFeedbackGenerator()
             notification.notificationOccurred(.success)
