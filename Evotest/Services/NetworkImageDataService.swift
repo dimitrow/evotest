@@ -12,26 +12,23 @@ import Alamofire
 class NetworkImageDataService: NetworkProtocol {
     
     func imageDataRequest(_ imageUUID: String, completion: @escaping (_ imageData: Data) -> Void, failure: @escaping (_ error: Error) -> Void) {
-        print("\n *** image")
+
         guard NetworkReachabilityManager()!.isReachable else {
             failure(ScanError.internetConnectionMissed)
             return
         }
-        
-        let imageURLstring = imageDownloadURLString
-        let imageURL = URL(string: imageURLstring)
+
+        let imageURLstring = imageDownloadURLString + imageUUID
         
         request(imageURLstring, method: .get).responseData { response in
             
-            //TODO: check data!
+            
+            let image = UIImage(data: response.data!)
             
             guard let imageData = response.data else {
-                failure(ScanError.unableToLoadImageData)
                 return
             }
-            
             completion(imageData)
-            
         }
     }
 }

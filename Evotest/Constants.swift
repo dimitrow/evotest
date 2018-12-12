@@ -11,7 +11,7 @@ import UIKit
 // MARK: - constants
 
 let requestURLString = "https://catalog.napolke.ru/search/catalog"
-let imageDownloadURLString = "https://drive.google.com/uc?id=1_SOt96zuGaQXfLh6gMrnRTMLR-4Aezx0"
+let imageDownloadURLString = "https://img.napolke.ru/image/get?uuid="
 let regionUUID = "0c5b2444-70a0-4932-980c-b4dc0d3f02b5"
 
 // MARK: - colors:

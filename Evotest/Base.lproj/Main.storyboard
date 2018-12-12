@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--BARCODE SCANNER-->
+        <!--Scan View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ScanViewController" customModule="Evotest" customModuleProvider="target" sceneMemberID="viewController">
@@ -67,7 +67,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="BARCODE SCANNER" id="YgP-xv-smz"/>
+                    <navigationItem key="navigationItem" id="YgP-xv-smz"/>
                     <connections>
                         <outlet property="cancelScanButton" destination="dwy-z4-rch" id="dOC-yQ-ivT"/>
                         <outlet property="scanView" destination="db5-Qs-a1v" id="R0u-XU-dXp"/>

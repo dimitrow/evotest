@@ -72,12 +72,10 @@ extension ItemDetailsViewController: ItemDetailsViewProtocol {
         
         DispatchQueue.main.async { [weak self] in
             
-            self?.activityIndicator.isHidden = false
             self?.activityIndicator.stopAnimating()
-            
+            self?.activityIndicator.isHidden = true
             self?.itemImage.image = UIImage(data: imageData)
         }
-        
     }
     
     func downloadFailed(_ error: Error) {
