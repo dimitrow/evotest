@@ -47,7 +47,7 @@ class ScanService: NSObject {
         previewLayer.videoGravity = .resizeAspectFill
         previewLayer.cornerRadius = 0.2
         previewLayer.borderWidth = 1.6
-        previewLayer.borderColor = UIColor(red: 110.0/255.0, green: 115.0/255.0, blue: 198.0/255.0, alpha: 1.0).cgColor
+        previewLayer.borderColor = evoBlueColor.cgColor 
 
         previewLayer.frame = scanView.layer.bounds
         scanView.layer.addSublayer(previewLayer)

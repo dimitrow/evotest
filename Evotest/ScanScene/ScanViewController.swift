@@ -42,23 +42,28 @@ class ScanViewController: UIViewController {
     
     func toggleButtons(_ enabled: Bool) {
         
-        self.cancelScanButton.isUserInteractionEnabled = !enabled
-        self.startScanButton.isUserInteractionEnabled = enabled
+        self.cancelScanButton.isEnabled = !enabled
+        self.startScanButton.isEnabled = enabled
+        
+        self.cancelScanButton.backgroundColor = !enabled ? evoBlueColor : evoButtonDisabledColor
+        self.startScanButton.backgroundColor = enabled ? evoRedColor : evoButtonDisabledColor
     }
     
     func showAlertWithError(_ message: String)  {
         
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
         
-        alert.addAction(cancelAction)
-        self.present(alert, animated: true) {
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel) { _ in
             
             DispatchQueue.main.async { [weak self] in
                 
                 self?.toggleButtons(true)
             }
         }
+        
+        alert.addAction(cancelAction)
+        
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
