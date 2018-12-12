@@ -21,8 +21,8 @@ class ScanViewController: UIViewController {
         super.viewDidLoad()
         
         presenter = ScanPresenter(view: self)
-        
-        self.toggleButtons(true)
+        setSceneTitle()
+        toggleButtons(true)
     }
     
     @IBAction func scanAction(_ sender: UIButton) {
@@ -37,16 +37,29 @@ class ScanViewController: UIViewController {
     @IBAction func cancelScanAction(_ sender: UIButton) {
         
         presenter.stopScan()
-        self.toggleButtons(true)        
+        toggleButtons(true)
+    }
+    
+    func setSceneTitle() {
+        
+        let view = UINib.init(nibName: "ScanSceneTitle", bundle: nil).instantiate(withOwner: self, options: nil).first as! UIView
+        
+        let titleX: CGFloat  = (self.navigationController?.navigationBar.bounds.origin.x)!
+        let titleY: CGFloat = (self.navigationController?.navigationBar.bounds.origin.y)!
+        let titleWidth = UIScreen.main.bounds.size.width / 2
+        
+        let frame: CGRect = CGRect(x: titleX, y: titleY, width: titleWidth, height: 44.0)
+        view.frame = frame
+        navigationItem.titleView = view
     }
     
     func toggleButtons(_ enabled: Bool) {
         
-        self.cancelScanButton.isEnabled = !enabled
-        self.startScanButton.isEnabled = enabled
+        cancelScanButton.isEnabled = !enabled
+        startScanButton.isEnabled = enabled
         
-        self.cancelScanButton.backgroundColor = !enabled ? evoBlueColor : evoButtonDisabledColor
-        self.startScanButton.backgroundColor = enabled ? evoRedColor : evoButtonDisabledColor
+        cancelScanButton.backgroundColor = !enabled ? evoBlueColor : evoButtonDisabledColor
+        startScanButton.backgroundColor = enabled ? evoRedColor : evoButtonDisabledColor
     }
     
     func showAlertWithError(_ message: String)  {
@@ -63,7 +76,7 @@ class ScanViewController: UIViewController {
         
         alert.addAction(cancelAction)
         
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
 }
 
@@ -82,7 +95,7 @@ extension ScanViewController: ScanViewProtocol {
             itemDetailsViewController.modalPresentationStyle = .overCurrentContext
             itemDetailsViewController.modalTransitionStyle = .crossDissolve
             itemDetailsViewController.item = item
-            self.present(itemDetailsViewController, animated: true, completion: nil)
+            present(itemDetailsViewController, animated: true, completion: nil)
             
             DispatchQueue.main.async { [weak self] in
                 

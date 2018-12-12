@@ -22,10 +22,10 @@ class ScanService: NSObject {
         super.init()
         
         self.scanView = scanView
-        captureSession = AVCaptureSession()
+        self.captureSession = AVCaptureSession()
         
         if !self.checkIfDeviceCompatible() {
-            captureSession = nil
+            self.captureSession = nil
             failed()
         }
     }
@@ -47,11 +47,11 @@ class ScanService: NSObject {
         previewLayer.videoGravity = .resizeAspectFill
         previewLayer.cornerRadius = 0.2
         previewLayer.borderWidth = 1.6
-        previewLayer.borderColor = evoBlueColor.cgColor 
+        previewLayer.borderColor = evoBlueColor.cgColor
 
         previewLayer.frame = scanView.layer.bounds
         scanView.layer.addSublayer(previewLayer)
-        self.captureSession.startRunning()
+        captureSession.startRunning()
         animateLayerAppearance(false)
     }
     
@@ -138,8 +138,8 @@ extension ScanService: AVCaptureMetadataOutputObjectsDelegate {
             guard let stringValue = readableObject.stringValue else { return }
             guard (self.output != nil) else { return }
             
-            self.captureSession.stopRunning()
-            self.stopScan()
+            captureSession.stopRunning()
+            stopScan()
             let notification = UINotificationFeedbackGenerator()
             notification.notificationOccurred(.success)
             

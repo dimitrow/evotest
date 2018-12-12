@@ -54,15 +54,7 @@ class ItemDetailsViewController: UIViewController {
     
     @IBAction func closeDetailsAction(_ sender: UIButton) {
         
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    func showAlertWithError(_ message: String)  {
-        
-        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
-        alert.addAction(cancelAction)
-        self.present(alert, animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -80,6 +72,14 @@ extension ItemDetailsViewController: ItemDetailsViewProtocol {
     
     func downloadFailed(_ error: Error) {
         
-        showAlertWithError(error.localizedDescription)
+        DispatchQueue.main.async { [weak self] in
+            
+            self?.activityIndicator.stopAnimating()
+            self?.activityIndicator.isHidden = true
+            self?.itemImage.image = UIImage(named: "missedItemPlaceholder")
+        }
+        
+        // something wrong with image url, or currupted image data received from server
+        // there's no need to bother user, but developers need to be warned
     }
 }

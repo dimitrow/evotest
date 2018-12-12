@@ -19,7 +19,7 @@ class ScanPresenter {
         self.view = view
         self.scanService = ScanService(view.scannerView)
         self.networkService = NetworkSearchService()
-        scanService.attachOutput(output: self)
+        self.scanService.attachOutput(output: self)
     }
 }
 
@@ -27,7 +27,7 @@ extension ScanPresenter: ScanServiceOutput {
     
     func scanSuccessful(_ code: String) {
         
-        self.networkService.basicItemSearchByBarcodeRequest(code, completion: { [weak self] item in
+        networkService.basicItemSearchByBarcodeRequest(code, completion: { [weak self] item in
             self?.view?.scanSuccessful(item)
         }, failure: { [weak self] error in
             self?.view?.scanAttemptFailed(error)
@@ -36,7 +36,7 @@ extension ScanPresenter: ScanServiceOutput {
     
     func scanFailed() {
         
-        self.view?.scanAttemptFailed(ScanError.deviceNotCompatible)
+        view?.scanAttemptFailed(ScanError.deviceNotCompatible)
     }
 }
 

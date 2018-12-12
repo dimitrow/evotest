@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1645A93C21BDB99B001771C1 /* ItemDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1645A93B21BDB99B001771C1 /* ItemDetailsViewController.swift */; };
 		165FF31221BF1EA7007D3DDE /* FlatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165FF31121BF1EA7007D3DDE /* FlatButton.swift */; };
+		167D26FB21C1BBE40045C587 /* ScanSceneTitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 167D26FA21C1BBE40045C587 /* ScanSceneTitle.xib */; };
 		168C7D4221BB102B00833EA4 /* ScanContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168C7D4121BB102B00833EA4 /* ScanContract.swift */; };
 		168C7D4421BB24C600833EA4 /* ScanPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168C7D4321BB24C600833EA4 /* ScanPresenter.swift */; };
 		3E37FE236CDFB8665699DA49 /* Pods_Evotest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C36CDE2F69630680AFAE4F1 /* Pods_Evotest.framework */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		1645A93B21BDB99B001771C1 /* ItemDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsViewController.swift; sourceTree = "<group>"; };
 		165FF31121BF1EA7007D3DDE /* FlatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatButton.swift; sourceTree = "<group>"; };
+		167D26FA21C1BBE40045C587 /* ScanSceneTitle.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScanSceneTitle.xib; sourceTree = "<group>"; };
 		168C7D4121BB102B00833EA4 /* ScanContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanContract.swift; sourceTree = "<group>"; };
 		168C7D4321BB24C600833EA4 /* ScanPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanPresenter.swift; sourceTree = "<group>"; };
 		23106DDDB921F1F35AF9F851 /* Pods-Evotest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Evotest.release.xcconfig"; path = "Pods/Target Support Files/Pods-Evotest/Pods-Evotest.release.xcconfig"; sourceTree = "<group>"; };
@@ -83,6 +85,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		167D26F921C1BB970045C587 /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				DF5E3B9C21BAC4BE000A2625 /* Main.storyboard */,
+				167D26FA21C1BBE40045C587 /* ScanSceneTitle.xib */,
+			);
+			path = UserInterface;
+			sourceTree = "<group>";
+		};
 		DF5E3B8C21BAC4BE000A2625 = {
 			isa = PBXGroup;
 			children = (
@@ -112,7 +123,7 @@
 				DF98E07721C178640065CDFF /* Errors.swift */,
 				DF98E07521C178240065CDFF /* Constants.swift */,
 				165FF31121BF1EA7007D3DDE /* FlatButton.swift */,
-				DF5E3B9C21BAC4BE000A2625 /* Main.storyboard */,
+				167D26F921C1BB970045C587 /* UserInterface */,
 				DF5E3B9F21BAC4BF000A2625 /* Assets.xcassets */,
 				DF5E3BA121BAC4BF000A2625 /* LaunchScreen.storyboard */,
 				DF5E3BA421BAC4BF000A2625 /* Info.plist */,
@@ -211,6 +222,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				167D26FB21C1BBE40045C587 /* ScanSceneTitle.xib in Resources */,
 				DF5E3BA321BAC4BF000A2625 /* LaunchScreen.storyboard in Resources */,
 				DF5E3BA021BAC4BF000A2625 /* Assets.xcassets in Resources */,
 				DF5E3B9E21BAC4BE000A2625 /* Main.storyboard in Resources */,

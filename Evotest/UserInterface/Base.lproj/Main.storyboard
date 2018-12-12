@@ -17,6 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backGround" translatesAutoresizingMaskIntoConstraints="NO" id="vA6-Vl-6BP">
+                                <rect key="frame" x="0.0" y="22" width="375" height="724"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="db5-Qs-a1v">
                                 <rect key="frame" x="-3" y="168" width="381" height="160"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -57,13 +60,17 @@
                         <constraints>
                             <constraint firstItem="dwy-z4-rch" firstAttribute="top" secondItem="ACO-WZ-Ysn" secondAttribute="bottom" constant="16" id="5X2-rO-yye"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="db5-Qs-a1v" secondAttribute="trailing" constant="-3" id="AeJ-PZ-JK4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vA6-Vl-6BP" secondAttribute="trailing" id="Ght-dN-mdN"/>
                             <constraint firstItem="db5-Qs-a1v" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="-3" id="Gvp-xQ-FAv"/>
                             <constraint firstItem="dwy-z4-rch" firstAttribute="leading" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Is5-ky-sJX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dwy-z4-rch" secondAttribute="bottom" constant="45" id="OIe-Fk-YQ8"/>
+                            <constraint firstItem="vA6-Vl-6BP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bTE-9P-cIp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="dwy-z4-rch" secondAttribute="trailing" constant="20" id="cFL-LH-NTL"/>
                             <constraint firstItem="db5-Qs-a1v" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="dak-ba-o7H"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="ACO-WZ-Ysn" secondAttribute="trailing" constant="20" id="jkz-DA-Edz"/>
                             <constraint firstItem="ACO-WZ-Ysn" firstAttribute="leading" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="pcQ-D4-whp"/>
+                            <constraint firstItem="vA6-Vl-6BP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-66" id="pzC-7K-Ivy"/>
+                            <constraint firstAttribute="bottom" secondItem="vA6-Vl-6BP" secondAttribute="bottom" constant="66" id="xqH-QY-gWj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -175,6 +182,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UEx-RR-n8n">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.046844713390000001" green="0.32738620039999999" blue="0.58067166810000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
@@ -189,4 +198,7 @@
             <point key="canvasLocation" x="136.80000000000001" y="132.26600985221674"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="backGround" width="375" height="812"/>
+    </resources>
 </document>

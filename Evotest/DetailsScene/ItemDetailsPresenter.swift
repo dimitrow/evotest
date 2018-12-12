@@ -19,11 +19,6 @@ class ItemDetailsPresenter: ItemDetailsPresenterProtocol {
         self.networkService = NetworkImageDataService()
     }
     
-    func downloadItemImageData(_ success: () -> Void, failure: () -> Void) {
-        
-        
-    }
-    
     func downloadImageData(for imageUUID: String) {
         
         NetworkImageDataService().imageDataRequest(imageUUID, completion: { [weak self] imageData in
@@ -33,7 +28,5 @@ class ItemDetailsPresenter: ItemDetailsPresenterProtocol {
             
             self.view?.downloadFailed(error)
         })
-        
     }
-    
 }

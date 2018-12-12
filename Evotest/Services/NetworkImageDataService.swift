@@ -21,14 +21,15 @@ class NetworkImageDataService: NetworkProtocol {
         let imageURLstring = imageDownloadURLString + imageUUID
         
         request(imageURLstring, method: .get).responseData { response in
+
+            guard let _ = response.data else { return }
             
-            
-            let image = UIImage(data: response.data!)
-            
-            guard let imageData = response.data else {
+            guard let _ = UIImage(data: response.data!) else {
+                failure(ScanError.unableToLoadImageData)
                 return
             }
-            completion(imageData)
+            
+            completion(response.data!)
         }
     }
 }
