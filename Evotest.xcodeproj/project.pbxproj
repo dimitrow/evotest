@@ -24,6 +24,7 @@
 		DF7036BF21D11E0F00D33A31 /* AssembleContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7036BE21D11E0E00D33A31 /* AssembleContract.swift */; };
 		DF7036C121D24E4100D33A31 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF7036C021D24E4100D33A31 /* Auth.storyboard */; };
 		DF7036C421D2620F00D33A31 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7036C321D2620F00D33A31 /* SignInViewController.swift */; };
+		DF7036C621D38B9000D33A31 /* ScanViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7036C521D38B9000D33A31 /* ScanViewAssembly.swift */; };
 		DF98E07421C177CB0065CDFF /* ItemDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF98E07321C177CB0065CDFF /* ItemDetailsPresenter.swift */; };
 		DF98E07621C178240065CDFF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF98E07521C178240065CDFF /* Constants.swift */; };
 		DF98E07821C178640065CDFF /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF98E07721C178640065CDFF /* Errors.swift */; };
@@ -54,6 +55,7 @@
 		DF7036BE21D11E0E00D33A31 /* AssembleContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssembleContract.swift; sourceTree = "<group>"; };
 		DF7036C021D24E4100D33A31 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		DF7036C321D2620F00D33A31 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		DF7036C521D38B9000D33A31 /* ScanViewAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewAssembly.swift; sourceTree = "<group>"; };
 		DF98E07321C177CB0065CDFF /* ItemDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsPresenter.swift; sourceTree = "<group>"; };
 		DF98E07521C178240065CDFF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DF98E07721C178640065CDFF /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				DF5E3B9A21BAC4BE000A2625 /* ScanViewController.swift */,
 				168C7D4321BB24C600833EA4 /* ScanPresenter.swift */,
 				168C7D4121BB102B00833EA4 /* ScanContract.swift */,
+				DF7036C521D38B9000D33A31 /* ScanViewAssembly.swift */,
 			);
 			path = ScanScene;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				DF98E07821C178640065CDFF /* Errors.swift in Sources */,
 				DF7036C421D2620F00D33A31 /* SignInViewController.swift in Sources */,
 				DF5E3BAB21BAC832000A2625 /* ScanService.swift in Sources */,
+				DF7036C621D38B9000D33A31 /* ScanViewAssembly.swift in Sources */,
 				DF98E07F21C18E1A0065CDFF /* NetworkContract.swift in Sources */,
 				168C7D4421BB24C600833EA4 /* ScanPresenter.swift in Sources */,
 				DF5E3BAD21BAC883000A2625 /* NetworkSearchService.swift in Sources */,

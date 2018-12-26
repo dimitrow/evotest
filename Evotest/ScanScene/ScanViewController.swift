@@ -21,8 +21,9 @@ class ScanViewController: UIViewController {
         super.viewDidLoad()
         
         presenter = ScanPresenter(view: self)
+
         setSceneTitle()
-        toggleButtons(true)
+        toggleButtons(enabled: true)
     }
     
     @IBAction func scanAction(_ sender: UIButton) {
@@ -30,14 +31,14 @@ class ScanViewController: UIViewController {
         presenter.startScan()
         DispatchQueue.main.async { [weak self] in
             
-            self?.toggleButtons(false)
+            self?.toggleButtons(enabled: false)
         }
     }
     
     @IBAction func cancelScanAction(_ sender: UIButton) {
         
         presenter.stopScan()
-        toggleButtons(true)
+        toggleButtons(enabled: true)
     }
     
     func setSceneTitle() {
@@ -53,7 +54,7 @@ class ScanViewController: UIViewController {
         navigationItem.titleView = view
     }
     
-    func toggleButtons(_ enabled: Bool) {
+    func toggleButtons(enabled: Bool) {
         
         cancelScanButton.isEnabled = !enabled
         startScanButton.isEnabled = enabled
@@ -70,7 +71,7 @@ class ScanViewController: UIViewController {
             
             DispatchQueue.main.async { [weak self] in
                 
-                self?.toggleButtons(true)
+                self?.toggleButtons(enabled: true)
             }
         }
         
@@ -99,7 +100,7 @@ extension ScanViewController: ScanViewProtocol {
             
             DispatchQueue.main.async { [weak self] in
                 
-                self?.toggleButtons(true)
+                self?.toggleButtons(enabled: true)
             }
         }
     }

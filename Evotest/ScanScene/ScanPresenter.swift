@@ -15,7 +15,7 @@ class ScanPresenter {
     private var networkService: NetworkProtocol
     
     init(view: ScanViewProtocol) {
-        
+
         self.view = view
         self.scanService = ScanService(view.scannerView)
         self.networkService = NetworkSearchService()

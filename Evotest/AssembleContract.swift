@@ -26,4 +26,6 @@ extension UIStoryboard {
     }
 }
 
-
+protocol SceneSetupProtocol {
+    static func setUpScene<T>() -> T where T: ReusableView
+}

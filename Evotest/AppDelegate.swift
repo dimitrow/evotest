@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         var session: String?
-        let navigationController = UINavigationController()
+        let navigationController = UINavigationController(rootViewController: ScanViewAssembly.setUpScene())
         if let _ = session {
             
         } else {
