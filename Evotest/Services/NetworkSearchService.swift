@@ -21,17 +21,15 @@ class NetworkSearchService: NetworkProtocol {
         let params: [String : Any] = ["text" : barcode, "region" : [regionUUID]]
 
         request(requestURLString, method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
-
-            let products: SearchResponseModel = try! JSONDecoder().decode(SearchResponseModel.self, from: response.data!)
-
-            // since we need only first object:
-            guard let item = products.data?.first else {
-
+            
+            do {
+                
+                let products: SearchResponseModel = try JSONDecoder().decode(SearchResponseModel.self, from: response.data!)
+                completion(products.data!.first!)
+            } catch {
                 failure(ScanError.itemNotFound)
-                return
             }
 
-            completion(item)
         }
     }
     
